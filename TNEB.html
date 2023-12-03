@@ -1,37 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-color: black;">
 <head>
   <title>service detail</title>
  <style>
 	.center {
 		background-color:black;
 		color:yellow;
-		display: flex;
-		flex-direction: column;
-  		height: 200px;
-		justify-content: center;
-		align-items: center;
-		border-radius: 25px;
+		margin: auto;
+  		width: 45%;
+  		border: 3px solid green;
+  		padding: 30px;
+		border-radius: 50px;
 		border: 2px solid #a7a7a7;
+		text-align: center;
+	}
+	input{
+		width: 9%;
 	}
 </style>
 </head>
 <body>
-<div><br><br><br><br></div>
 <div class="center">
 <div style="flex-direction:row">
 <label>CONSUMER NUMBER:</label>
-  <input type="number" id="rsno"min="1" max="9">
-  <input type="number" id="sec" min="001" max="255">
-  <input type="number" id="dist" min="001" max="255">
-  <input type="number" id="serno" min="001" max="255"><br><br><br>
+  <input type="text" id="rsno" required pattern="\d{1}">
+  <input type="text" id="sec" required pattern="\d{3}">
+  <input type="text" id="dist" required pattern="\d{3}">
+  <input type="text" id="serno" required pattern="\d{4}">
+  <br><br><br>
 </div>
 <button onclick="redir()">submit</button>
 </div>
+
+<div id="result"></div>
 <script>
 
-function redir(){
+window.onload=function(){
+	document.getElementById("rsno").focus();
+}
 
+/*function ch(){
+	let valText=document.getElementById('reno').value;
+	console.log(valText);
+	let valStr=valText.toString();
+	if(valStr.length === 1){
+		document.getElementById('sec').focus();
+	}
+}*/
+
+function redir(){
+	
 let a="https://tneb.tnebnet.org/newlt/detconws.php?";
 
 let b=document.getElementById('rsno').value;
@@ -42,7 +60,7 @@ let d=document.getElementById('dist').value;
 
 let e=document.getElementById('serno').value;
 
-window.location.replace(a+"rsno="+b+"&eg=4&sec="+c+"&dist="+d+"&serno="+e);
+document.getElementById("result").innerHTML='<iframe src='+a+"rsno="+b+"&eg=4&sec="+c+"&dist="+d+"&serno="+e+' title="SD" style="height:1600px;width:100%;"></iframe>';
 }
 </script>
 </body>
