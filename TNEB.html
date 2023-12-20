@@ -23,13 +23,13 @@
 <div class="center">
 <div style="flex-direction:row">
 <label>CONSUMER NUMBER:</label>
-  <input type="text" id="rsno" required pattern="\d{1}">
-  <input type="text" id="sec" required pattern="\d{3}">
-  <input type="text" id="dist" required pattern="\d{3}">
-  <input type="text" id="serno" required pattern="\d{4}">
+  <input type="text" id="rsno" onchange="f1()" required pattern="\d{1}">
+  <input type="text" id="sec" onchange="f2()" required pattern="\d{3}">
+  <input type="text" id="dist" onchange="f3()" required pattern="\d{3}">
+  <input type="text" id="serno" onchange="f4()" required pattern="\d{4}">
   <br><br><br>
 </div>
-<button onclick="redir()">submit</button>
+<button id="bt" onclick="redir()">submit</button>
 </div>
 
 <div id="result"></div>
@@ -39,14 +39,33 @@ window.onload=function(){
 	document.getElementById("rsno").focus();
 }
 
-/*function ch(){
-	let valText=document.getElementById('reno').value;
-	console.log(valText);
-	let valStr=valText.toString();
-	if(valStr.length === 1){
+function f1(){
+	let sd=document.getElementById('rsno').value;
+	console.log(sd);
+	if((sd.toString()).length > 0)
 		document.getElementById('sec').focus();
-	}
-}*/
+}
+
+function f2(){
+	let sd=document.getElementById('sec').value;
+	console.log(sd);
+	if((sd.toString()).length === 3)
+		document.getElementById('dist').focus();
+}
+
+function f3(){
+	let sd=document.getElementById('dist').value;
+	console.log(sd);
+	if((sd.toString()).length === 3)
+		document.getElementById('serno').focus();
+}
+
+function f4(){
+	let sd=document.getElementById('serno').value;
+	console.log(sd);
+	if((sd.toString()).length  > 0)
+		document.getElementById('bt').focus();
+}
 
 function redir(){
 	
@@ -61,6 +80,8 @@ let d=document.getElementById('dist').value;
 let e=document.getElementById('serno').value;
 
 document.getElementById("result").innerHTML='<iframe src='+a+"rsno="+b+"&eg=4&sec="+c+"&dist="+d+"&serno="+e+' title="SD" style="height:1600px;width:100%;"></iframe>';
+
+document.getElementById('rsno').focus();
 }
 </script>
 </body>
