@@ -26,7 +26,7 @@
   <input type="text" id="rsno" onkeydown="f1()" required pattern="\d{1}">
   <input type="text" id="sec" onkeydown="f2()" required pattern="\d{3}">
   <input type="text" id="dist" onkeydown="f3()" required pattern="\d{3}">
-  <input type="text" id="serno" onchange="f4()" required pattern="\d{4}">
+  <input type="number" id="serno" onchange="f4()" required pattern="\d{4}">
   <br><br><br>
 </div>
 <button id="bt" onclick="redir()">submit</button>
@@ -41,30 +41,29 @@ window.onload=function(){
 
 function f1(){
 	let sd=document.getElementById('rsno').value;
-	console.log(sd);
 	if((sd.toString()).length > 0)
 		document.getElementById('sec').focus();
 }
 
 function f2(){
 	let sd=document.getElementById('sec').value;
-	console.log(sd);
 	if((sd.toString()).length === 3)
 		document.getElementById('dist').focus();
 }
 
 function f3(){
 	let sd=document.getElementById('dist').value;
-	console.log(sd);
 	if((sd.toString()).length === 3)
 		document.getElementById('serno').focus();
 }
 
 function f4(){
 	let sd=document.getElementById('serno').value;
-	console.log(sd);
 	if((sd.toString()).length  > 0)
+	{
+		redir();
 		document.getElementById('bt').focus();
+	}
 }
 
 function redir(){
@@ -81,7 +80,7 @@ let e=document.getElementById('serno').value;
 
 document.getElementById("result").innerHTML='<iframe src='+a+"rsno="+b+"&eg=4&sec="+c+"&dist="+d+"&serno="+e+' title="SD" style="height:1600px;width:100%;"></iframe>';
 
-document.getElementById('rsno').focus();
+document.getElementById('serno').focus();
 }
 </script>
 </body>
