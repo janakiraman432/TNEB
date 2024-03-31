@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: black;">
+<head>
+  <title>SERVICE DETAILS</title>
+ <style>
+	.center {
+		background-color:black;
+		color:yellow;
+		margin: auto;
+  		width: 45%;
+  		border: 3px solid green;
+  		padding: 30px;
+		border-radius: 50px;
+		border: 2px solid #a7a7a7;
+		text-align: center;
+	}
+	input:active {
+		border: 2px solid blue;
+	}
+	input{
+		width: 9%;
+	}
+</style>
+</head>
+<body>
+<div class="center">
+<div style="flex-direction:row">
+<label>service number : </label>
+  <input type="text" id="svNUM" required>
+  <br><br><br>
+</div>
+<button id="bt" onclick="redir()">submit</button>
+</div>
 
+<div id="result"></div>
+<script>
+
+window.onload=function(){
+	document.getElementById("svNUM").focus();
+}
+
+function splitNum(num) {
+    return String(num).split("").map(Number);
+}
+
+function redir(){
+   
+  console.log(splitNum(document.getElementById('svNUM').value));
+   
+// let a="http://tneb.tnebnet.org/newlt/detconws.php?";
+
+// let b=document.getElementById('rsno').value;
+
+// let c=document.getElementById('sec').value;
+
+// let d=document.getElementById('dist').value;
+
+// let e=document.getElementById('serno').value;
+
+// document.getElementById("result").innerHTML='<iframe src='+a+"rsno="+b+"&eg=4&sec="+c+"&dist="+d+"&serno="+e+' title="SD" style="height:1600px;width:100%;"></iframe>';
+
+document.getElementById('svNUM').focus();
+}
+</script>
+</body>
+</html>
