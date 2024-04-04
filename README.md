@@ -1,1 +1,1 @@
-you can see service details here 😇
+enter your service number then see your eb bill usage
