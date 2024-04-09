@@ -68,6 +68,7 @@ function splitNum(num)
 function redir()
 {
 arr=splitNum(document.getElementById('svNUM').value);
+arr.replaceall(" ","");
 console.log(arr);
 	
 let len1=arr.length;  
