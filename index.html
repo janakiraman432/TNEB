@@ -20,8 +20,8 @@
 		color: black;
 		width: 14%;
 	}
-	 /* Footer */
-        footer {
+	 /* header */
+        header {
             margin-top: 20px;
             font-size: 12px;
             color: #888;
@@ -31,16 +31,15 @@
 <body>
 <div class="center">
 <div style="flex-direction:row">
+<header>
+            Developed by <a href="https://github.com/janakiraman432">janakiraman</a>
+</header><br>
 <label style="color: yellow;">service number : </label>
   <input type="number" onchange="redir()" id="svNUM" required>
   <button onclick="clr()" >x</button>
   <br><br><br>
 </div>
 <button id="bt" onclick="redir()">submit</button>
-	<br>
-<footer>
-            Developed by <a href="https://github.com/janakiraman432">janakiraman</a>
-</footer>
 </div>
 
 <div id="result"></div>
